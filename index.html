@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wing Publishers LLC | Your Vision. Your Voice. Your Book.</title>
+    <meta name="description" content="Wing Publishers LLC engineers premium publishing solutions — ghostwriting, editorial design, and worldwide distribution for the modern author.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 900: '#06121f', 800: '#0a1e33', 700: '#0f2b47', 600: '#14385c' },
+                        gold: { DEFAULT: '#c5a23e', light: '#d4b356', dark: '#a88a2f' },
+                        cream: '#f7f5f0',
+                        warm: '#faf9f6',
+                        slate: { 400: '#94a3b8', 500: '#64748b', 600: '#475569' }
+                    },
+                    fontFamily: {
+                        primary: ['"Helvetica Neue"', 'Manrope', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-warm text-navy-900 font-primary antialiased overflow-x-hidden">
+
+    <div class="cursor-dot hidden lg:block"></div>
+    <div class="cursor-outline hidden lg:block"></div>
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[100] bg-navy-900 flex items-center justify-center">
+        <div class="text-center">
+            <img src="img/logo.png" alt="Wing Publishers" class="h-20 mx-auto mb-8 opacity-80">
+            <div class="text-7xl md:text-9xl font-primary font-light tracking-[-0.04em] text-white" id="loader-counter">0</div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ NAVIGATION ═══════════════ -->
+    <nav class="navbar fixed top-0 left-0 w-full z-50 py-6 lg:py-7" id="navbar">
+        <div class="nav-inner max-w-[1400px] mx-auto px-6 lg:px-10 flex justify-between items-center">
+            <a href="index.html" class="hover-target relative z-50">
+                <img src="img/logo.png" alt="Wing Publishers" class="nav-logo h-20 lg:h-24">
+            </a>
+            
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="index.html" class="text-[13px] font-medium tracking-wide uppercase text-white/90 hover:text-gold transition-colors hover-target">Home</a>
+                <a href="about.html" class="text-[13px] font-medium tracking-wide uppercase text-white/50 hover:text-gold transition-colors hover-target">About</a>
+                <a href="services.html" class="text-[13px] font-medium tracking-wide uppercase text-white/50 hover:text-gold transition-colors hover-target">Services</a>
+                <a href="contact.html" class="btn-primary text-[13px] font-medium tracking-wide uppercase px-7 py-2.5 bg-gold text-navy-900 rounded-sm hover-target relative z-[1]">
+                    <span class="relative z-[1]">Contact Us</span>
+                </a>
+            </div>
+
+            <button id="menu-toggle" class="lg:hidden relative z-50 w-8 h-8 flex flex-col justify-center items-end gap-1.5 hover-target">
+                <span class="block w-7 h-[1.5px] bg-white transition-all duration-300"></span>
+                <span class="block w-5 h-[1.5px] bg-white transition-all duration-300"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu fixed inset-0 z-40 bg-navy-900 flex flex-col items-center justify-center gap-8 lg:hidden" id="mobile-menu">
+        <a href="index.html" class="text-2xl font-light text-white tracking-wide">Home</a>
+        <a href="about.html" class="text-2xl font-light text-white/60 tracking-wide">About</a>
+        <a href="services.html" class="text-2xl font-light text-white/60 tracking-wide">Services</a>
+        <a href="contact.html" class="text-2xl font-light text-gold tracking-wide">Contact Us</a>
+    </div>
+
+    <main>
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section class="relative min-h-screen bg-navy-900 overflow-hidden flex items-center starfield">
+            <div class="absolute top-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full opacity-[0.07]" style="background: radial-gradient(circle, #1a6dd4 0%, transparent 70%);"></div>
+            <div class="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full opacity-[0.04]" style="background: radial-gradient(circle, #c5a23e 0%, transparent 70%);"></div>
+
+            <!-- Floating Particles -->
+            <div class="particles-container" id="hero-particles"></div>
+
+            <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 lg:px-10 pt-32 pb-28 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+                <div class="lg:col-span-7">
+                    <div class="mb-7 inline-flex items-center gap-2.5 px-4 py-1.5 rounded-sm border border-gold/20 bg-gold/5 animate-reveal">
+                        <span class="w-[6px] h-[6px] rounded-full bg-gold animate-pulse"></span>
+                        <span class="text-[11px] font-medium tracking-[0.15em] uppercase text-gold">Accepting Manuscripts</span>
+                    </div>
+
+                    <h1 class="animate-reveal">
+                        <span class="block text-[clamp(3rem,6.5vw,6rem)] font-light text-white leading-[1.05] tracking-[-0.02em]">Your Vision.</span>
+                        <span class="block text-[clamp(3rem,6.5vw,6rem)] font-light text-gold leading-[1.05] tracking-[-0.02em] italic">Your Voice.</span>
+                        <span class="block text-[clamp(3rem,6.5vw,6rem)] font-light text-white/40 leading-[1.05] tracking-[-0.02em]">Your Book.</span>
+                    </h1>
+
+                    <p class="mt-8 text-[17px] text-white/50 max-w-[520px] leading-[1.7] font-light animate-reveal">
+                        Wing Publishers LLC engineers premium publishing solutions to bring your manuscript to life and scale it globally.
+                    </p>
+
+                    <div class="mt-10 flex flex-col sm:flex-row gap-4 animate-reveal">
+                        <a href="contact.html" class="btn-primary inline-flex items-center justify-center px-8 py-3.5 bg-gold text-navy-900 text-[13px] font-bold tracking-wide uppercase rounded-sm hover-target relative z-[1]">
+                            <span class="relative z-[1]">Discuss Your Project</span>
+                        </a>
+                        <a href="services.html" class="btn-outline inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/15 text-white/70 text-[13px] font-medium tracking-wide uppercase rounded-sm hover-target">
+                            View Services
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Book Visual -->
+                <div class="lg:col-span-5 relative hidden lg:flex items-center justify-center h-[560px] animate-reveal">
+                    <div class="relative w-[260px] h-[380px] bg-navy-800 rounded shadow-[0_30px_80px_rgba(0,0,0,0.5)] border border-white/5 flex flex-col items-center justify-center" style="transform: perspective(800px) rotateY(-8deg) rotateX(3deg);">
+                        <div class="absolute inset-0 rounded bg-gradient-to-br from-white/[0.06] to-transparent pointer-events-none"></div>
+                        <img src="img/logo.png" alt="Wing" class="w-24 mb-5 opacity-90">
+                        <p class="text-[11px] text-white/30 tracking-[0.25em] uppercase font-medium">Wing Publishers</p>
+                        <div class="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-gold/30 via-gold/10 to-transparent rounded-l"></div>
+                    </div>
+
+                    <div class="absolute -right-6 top-[30%] p-5 bg-navy-700/90 backdrop-blur-md border border-white/[0.08] rounded shadow-xl max-w-[200px]" data-reveal="0.2">
+                        <div class="w-8 h-8 rounded bg-gold/15 flex items-center justify-center mb-3">
+                            <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <p class="text-[13px] font-bold text-white mb-1">Publishing Excellence</p>
+                        <p class="text-[11px] text-white/40 leading-relaxed">We believe in the power of stories to shape minds.</p>
+                    </div>
+
+                    <div class="absolute left-[-30px] bottom-[15%] p-4 bg-navy-700/90 backdrop-blur-md border border-white/[0.08] rounded shadow-xl" data-reveal="0.35">
+                        <p class="text-[10px] text-white/30 tracking-[0.2em] uppercase mb-1">Global Scale</p>
+                        <p class="text-[14px] font-medium text-white">Worldwide Distribution</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Stats -->
+            <div class="absolute bottom-0 left-0 w-full border-t border-white/[0.06] bg-navy-900/80 backdrop-blur-sm z-10 animate-reveal">
+                <div class="max-w-[1400px] mx-auto px-6 lg:px-10 py-5 grid grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-[3px] h-8 bg-gold/30 rounded-full"></div>
+                        <div>
+                            <p class="text-[10px] text-white/30 tracking-[0.15em] uppercase">Global Scale</p>
+                            <p class="text-[14px] text-white/80 font-medium">Worldwide Distribution</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-[3px] h-8 bg-gold/30 rounded-full"></div>
+                        <div>
+                            <p class="text-[10px] text-white/30 tracking-[0.15em] uppercase">Editorial Status</p>
+                            <p class="text-[14px] text-white/80 font-medium">Refined</p>
+                        </div>
+                    </div>
+                    <div class="items-center gap-3 hidden lg:flex">
+                        <div class="w-[3px] h-8 bg-gold/30 rounded-full"></div>
+                        <div>
+                            <p class="text-[10px] text-white/30 tracking-[0.15em] uppercase">Operations</p>
+                            <p class="text-[14px] text-white/80 font-medium">US Based</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ MARQUEE ═══════════════ -->
+        <section class="py-5 bg-gold overflow-hidden">
+            <div class="marquee-track flex whitespace-nowrap" data-speed="60" data-direction="left">
+                <div class="flex items-center gap-10 px-5 text-2xl md:text-4xl font-light text-navy-900 tracking-[-0.02em] shrink-0">
+                    <span>Global Distribution</span> <span class="text-navy-900/20">✦</span>
+                    <span>Editorial Excellence</span> <span class="text-navy-900/20">✦</span>
+                    <span>Cover Design</span> <span class="text-navy-900/20">✦</span>
+                    <span>Ghostwriting</span> <span class="text-navy-900/20">✦</span>
+                    <span>Marketing Strategy</span> <span class="text-navy-900/20">✦</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ornamental Divider -->
+        <div class="ornament-divider bg-warm pt-16 pb-0">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="diamond"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+        </div>
+
+        <!-- ═══════════════ ABOUT SECTION — LIGHT ═══════════════ -->
+        <section class="bg-warm parchment py-16 lg:py-28" id="about">
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="stagger-reveal">
+                    <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-5">The Agency</p>
+                    <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-light text-navy-900 leading-[1.15] tracking-[-0.01em] mb-8">
+                        Writing is an art.<br><span class="text-gold font-medium italic enchanted-underline">Publishing is an architecture.</span>
+                    </h2>
+                    <div class="space-y-5 text-[16px] text-slate-500 leading-[1.8] max-w-lg mb-10">
+                        <p>At Wing Publishers, we engineer the foundation for your story. From meticulous structural editing to top-tier visual design, we construct a launchpad for authors who demand excellence.</p>
+                        <p>We handle the intricate backend of the publishing world—distribution, formatting, and logistics—so you can remain focused on your craft.</p>
+                    </div>
+                    <a href="about.html" class="cta-link text-[13px] font-bold tracking-wide uppercase text-navy-900 hover-target">
+                        Learn More About Us
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded overflow-hidden h-[280px] lg:h-[340px]" data-scale-reveal>
+                        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop" alt="Books on shelf" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="rounded overflow-hidden h-[140px] lg:h-[170px]" data-scale-reveal>
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop" alt="Writing workspace" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <div class="bg-navy-900 rounded p-6 flex flex-col justify-center h-[128px] lg:h-[158px]" data-scale-reveal>
+                            <img src="img/logo.png" alt="Wing" class="w-12 mb-3 opacity-60">
+                            <p class="text-[13px] font-bold text-gold mb-1">Our Mission</p>
+                            <p class="text-[11px] text-white/50 leading-relaxed">To publish exceptional works that inform, inspire, and create a lasting legacy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stat bar -->
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-10 mt-20">
+                <div class="h-[1px] bg-navy-900/10 line-reveal mb-12"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 stagger-reveal">
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-2">Dedication</p>
+                        <p class="text-[clamp(3rem,5vw,4.5rem)] font-light text-navy-900 leading-none tracking-[-0.03em]" data-count="100" data-suffix="%">0%</p>
+                        <p class="text-[14px] text-slate-500 mt-2">To maintaining your unique authorial voice.</p>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-2">Operations</p>
+                        <p class="text-[clamp(3rem,5vw,4.5rem)] font-light text-navy-900 leading-none tracking-[-0.03em]">US Based</p>
+                        <p class="text-[14px] text-slate-500 mt-2">Headquartered and operated in the United States.</p>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-2">Reach</p>
+                        <p class="text-[clamp(3rem,5vw,4.5rem)] font-light text-navy-900 leading-none tracking-[-0.03em]">Global</p>
+                        <p class="text-[14px] text-slate-500 mt-2">Distribution across every major international network.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Ornamental Divider -->
+        <div class="ornament-divider bg-cream pt-16 pb-0">
+            <span class="line"></span>
+            <span class="dot"></span>
+            <span class="diamond"></span>
+            <span class="dot"></span>
+            <span class="line"></span>
+        </div>
+
+        <!-- ═══════════════ SERVICES SECTION — CREAM ═══════════════ -->
+        <section class="bg-cream parchment py-16 lg:py-28" id="services">
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+                <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-16 stagger-reveal">
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-5">Our Expertise</p>
+                        <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-light text-navy-900 leading-[1.15] tracking-[-0.01em]">
+                            Comprehensive Solutions<br>for <span class="text-gold italic font-medium enchanted-underline">Modern Authors</span>
+                        </h2>
+                    </div>
+                    <a href="services.html" class="cta-link text-[13px] font-bold tracking-wide uppercase text-navy-900 hover-target shrink-0">
+                        All Services
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-navy-900/[0.06] border border-navy-900/[0.06] rounded overflow-hidden">
+                    
+                    <div class="service-card bg-cream p-10 lg:p-12 group hover:bg-navy-900 transition-colors duration-500" data-reveal="0">
+                        <div class="w-10 h-10 rounded bg-navy-900/[0.06] group-hover:bg-gold/15 flex items-center justify-center mb-8 transition-colors duration-500">
+                            <svg class="w-5 h-5 text-navy-900 group-hover:text-gold transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-medium text-navy-900 group-hover:text-white mb-4 transition-colors duration-500 tracking-[-0.01em]">Ghostwriting</h3>
+                        <p class="text-[15px] text-slate-500 group-hover:text-white/50 leading-[1.7] transition-colors duration-500">
+                            We pair you with elite industry writers who capture your tone and vision, translating raw concepts into compelling, structured manuscripts.
+                        </p>
+                    </div>
+
+                    <div class="service-card bg-cream p-10 lg:p-12 group hover:bg-navy-900 transition-colors duration-500" data-reveal="0.1">
+                        <div class="w-10 h-10 rounded bg-navy-900/[0.06] group-hover:bg-gold/15 flex items-center justify-center mb-8 transition-colors duration-500">
+                            <svg class="w-5 h-5 text-navy-900 group-hover:text-gold transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-medium text-navy-900 group-hover:text-white mb-4 transition-colors duration-500 tracking-[-0.01em]">Design & Formatting</h3>
+                        <p class="text-[15px] text-slate-500 group-hover:text-white/50 leading-[1.7] transition-colors duration-500">
+                            Striking cover illustrations and meticulous interior layout formatting ensuring your book meets the highest visual and industry standards.
+                        </p>
+                    </div>
+
+                    <div class="service-card bg-cream p-10 lg:p-12 group hover:bg-navy-900 transition-colors duration-500" data-reveal="0.2">
+                        <div class="w-10 h-10 rounded bg-navy-900/[0.06] group-hover:bg-gold/15 flex items-center justify-center mb-8 transition-colors duration-500">
+                            <svg class="w-5 h-5 text-navy-900 group-hover:text-gold transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-medium text-navy-900 group-hover:text-white mb-4 transition-colors duration-500 tracking-[-0.01em]">Global Distribution</h3>
+                        <p class="text-[15px] text-slate-500 group-hover:text-white/50 leading-[1.7] transition-colors duration-500">
+                            Seamless deployment of your book across major international networks, available in eBook, paperback, and hardcover formats.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ METHODOLOGY (PROCESS) — LIGHT ═══════════════ -->
+        <section class="bg-warm parchment py-28 lg:py-36 relative overflow-hidden border-t border-navy-900/[0.04]">
+            <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
+                <div class="text-center mb-24 stagger-reveal">
+                    <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-5">Our Methodology</p>
+                    <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-light text-navy-900 leading-[1.15] tracking-[-0.01em]">
+                        A streamlined path from <span class="text-gold italic font-medium enchanted-underline">concept to publication.</span>
+                    </h2>
+                </div>
+
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Vertical Line -->
+                    <div class="absolute left-[23px] md:left-1/2 top-0 bottom-0 w-[1px] bg-navy-900/10 md:-translate-x-1/2"></div>
+                    
+                    <!-- Timeline Progress Line (will animate in JS) -->
+                    <div id="timeline-progress" class="absolute left-[23px] md:left-1/2 top-0 h-0 w-[2px] bg-gold md:-translate-x-1/2 origin-top"></div>
+
+                    <div class="space-y-16 lg:space-y-24">
+                        <!-- Step 1 -->
+                        <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between group">
+                            <div class="absolute left-[17px] md:left-1/2 top-1 w-[14px] h-[14px] rounded-full bg-warm border-[2px] border-gold md:-translate-x-1/2 z-10 shadow-[0_0_0_4px_rgba(250,249,246,1)] transition-all duration-500 group-hover:scale-125 group-hover:bg-gold group-hover:shadow-[0_0_15px_rgba(197,162,62,0.4)]"></div>
+                            
+                            <div class="md:w-[45%] pl-16 md:pl-0 md:text-right md:pr-12 pt-0.5" data-reveal="0">
+                                <p class="text-[4rem] font-light text-navy-900/10 leading-none tracking-tighter mb-2 font-serif">I</p>
+                                <h3 class="text-2xl font-medium text-navy-900 mb-4 tracking-[-0.01em]">Ideation & Architecture</h3>
+                                <p class="text-[15px] text-slate-500 leading-[1.7]">We don't just read your manuscript; we analyze its structural integrity. Whether we are ghostwriting from scratch or evaluating your final draft, we map out a narrative strategy designed to captivate your specific target audience.</p>
+                            </div>
+                            <div class="hidden md:block md:w-[45%]"></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between group">
+                            <div class="absolute left-[17px] md:left-1/2 top-1 w-[14px] h-[14px] rounded-full bg-warm border-[2px] border-gold md:-translate-x-1/2 z-10 shadow-[0_0_0_4px_rgba(250,249,246,1)] transition-all duration-500 group-hover:scale-125 group-hover:bg-gold group-hover:shadow-[0_0_15px_rgba(197,162,62,0.4)]"></div>
+                            
+                            <div class="hidden md:block md:w-[45%] text-right pt-0.5">
+                                <!-- empty placeholder for layout -->
+                            </div>
+                            <div class="md:w-[45%] pl-16 md:pl-12 pt-0.5" data-reveal="0.1">
+                                <p class="text-[4rem] font-light text-navy-900/10 leading-none tracking-tighter mb-2 font-serif">II</p>
+                                <h3 class="text-2xl font-medium text-navy-900 mb-4 tracking-[-0.01em]">Iterative Refinement</h3>
+                                <p class="text-[15px] text-slate-500 leading-[1.7]">Writing is rewriting. Our editorial team initiates multiple passes—covering developmental pacing, line edits, and final proofreading—ensuring your voice remains authentic while meeting top-tier industry standards.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="timeline-step relative flex flex-col md:flex-row items-start md:justify-between group">
+                            <div class="absolute left-[17px] md:left-1/2 top-1 w-[14px] h-[14px] rounded-full bg-warm border-[2px] border-gold md:-translate-x-1/2 z-10 shadow-[0_0_0_4px_rgba(250,249,246,1)] transition-all duration-500 group-hover:scale-125 group-hover:bg-gold group-hover:shadow-[0_0_15px_rgba(197,162,62,0.4)]"></div>
+                            
+                            <div class="md:w-[45%] pl-16 md:pl-0 md:text-right md:pr-12 pt-0.5" data-reveal="0.2">
+                                <p class="text-[4rem] font-light text-navy-900/10 leading-none tracking-tighter mb-2 font-serif">III</p>
+                                <h3 class="text-2xl font-medium text-navy-900 mb-4 tracking-[-0.01em]">Market Deployment</h3>
+                                <p class="text-[15px] text-slate-500 leading-[1.7]">A great book needs a great launch. We handle the technical formatting, striking cover design, and global distribution logistics to ensure your title is available to readers worldwide.</p>
+                            </div>
+                            <div class="hidden md:block md:w-[45%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ TESTIMONIALS — DARK ═══════════════ -->
+        <section class="bg-navy-800 py-28 lg:py-36 relative overflow-hidden starfield border-y border-white/[0.05]">
+            <div class="max-w-[1200px] mx-auto px-6 lg:px-10 text-center relative z-10">
+                <svg class="w-12 h-12 text-gold mx-auto mb-10 opacity-60" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                
+                <div class="testimonial-slider relative">
+                    <div class="testimonial-slide animate-reveal">
+                        <p class="text-2xl md:text-4xl font-light text-white leading-[1.4] tracking-[-0.01em] italic mb-10">
+                            "Wing Publishers transformed my manuscript from a rough concept into a stunning, globally distributed hardcover. Their attention to design and editorial detail is unmatched."
+                        </p>
+                        <div>
+                            <p class="text-[13px] font-bold text-gold uppercase tracking-widest mb-1">Eleanor Vance</p>
+                            <p class="text-[12px] text-white/40 tracking-wider">Bestselling Author of 'The Silent Echo'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CONTACT CTA — DARK ═══════════════ -->
+        <section class="bg-navy-900 py-28 lg:py-36 relative overflow-hidden starfield" id="contact">
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-[0.05]" style="background: radial-gradient(circle, #1a6dd4 0%, transparent 70%);"></div>
+            
+            <!-- Floating Particles -->
+            <div class="particles-container" id="contact-particles"></div>
+
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden z-0">
+                <span class="text-[18vw] font-bold text-white/[0.015] tracking-[-0.05em] whitespace-nowrap parallax-text">LET'S TALK</span>
+            </div>
+
+            <div class="relative z-10 max-w-[800px] mx-auto px-6 text-center stagger-reveal">
+                <p class="text-[11px] font-bold tracking-[0.2em] text-gold uppercase mb-8">Get In Touch</p>
+                <h2 class="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] tracking-[-0.02em] mb-8">
+                    Start your story<br><span class="text-gold italic">today.</span>
+                </h2>
+                <a href="mailto:info@wingpublishersllc.com" class="inline-block text-xl md:text-2xl text-white/40 hover:text-gold transition-colors duration-300 hover-target mb-12 relative group tracking-[-0.01em]">
+                    info@wingpublishersllc.com
+                    <span class="absolute -bottom-2 left-0 w-full h-[1px] bg-gold/30 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-center duration-500"></span>
+                </a>
+                <div>
+                    <a href="contact.html" class="btn-primary inline-flex items-center justify-center px-10 py-4 bg-gold text-navy-900 text-[13px] font-bold tracking-wide uppercase rounded-sm hover-target relative z-[1]">
+                        <span class="relative z-[1]">Get Started</span>
+                    </a>
+                </div>
+                <p class="mt-14 text-[13px] text-white/20 max-w-md mx-auto leading-relaxed">
+                    Headquartered in the US. Engineering premium publishing solutions for the modern author.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="bg-navy-900 pt-20 pb-8 px-6 border-t border-white/[0.04]">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col lg:flex-row justify-between items-start gap-12 pb-12 border-b border-white/[0.06]">
+                <div>
+                    <img src="img/logo.png" alt="Wing Publishers" class="h-20 mb-5 opacity-80">
+                    <p class="text-[14px] text-white/40 max-w-sm leading-relaxed">Headquartered in the US. Engineering premium publishing solutions for the modern author.</p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-12 lg:gap-20">
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.15em] text-white/30 uppercase mb-4">Navigation</p>
+                        <div class="flex flex-col gap-3">
+                            <a href="index.html" class="text-[14px] text-white/60 hover:text-gold transition-colors hover-target">Home</a>
+                            <a href="about.html" class="text-[14px] text-white/60 hover:text-gold transition-colors hover-target">About Us</a>
+                            <a href="services.html" class="text-[14px] text-white/60 hover:text-gold transition-colors hover-target">Services</a>
+                            <a href="contact.html" class="text-[14px] text-white/60 hover:text-gold transition-colors hover-target">Contact</a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-[11px] font-bold tracking-[0.15em] text-white/30 uppercase mb-4">Contact</p>
+                        <a href="mailto:info@wingpublishersllc.com" class="text-[14px] text-gold hover:text-white transition-colors hover-target">info@wingpublishersllc.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[12px] text-white/25">
+                <p>© 2026 WING PUBLISHERS LLC. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white/50 transition-colors hover-target">Privacy Policy</a>
+                    <a href="#" class="hover:text-white/50 transition-colors hover-target">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

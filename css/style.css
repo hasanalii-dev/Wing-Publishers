@@ -1,0 +1,553 @@
+/* ==============================
+   WING PUBLISHERS — CORE STYLES
+   ============================== */
+
+/* Local Font Loading — Helvetica Neue */
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueUltraLight.otf') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueUltraLightItalic.otf') format('opentype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueThin.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueThinItalic.otf') format('opentype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueLight.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueLightItalic.otf') format('opentype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueRoman.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueMedium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueMediumItalic.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueBoldItalic.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueHeavy.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../fonts/HelveticaNeueBlack.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ---- Base ---- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #1a3a5c #06121f;
+}
+html::-webkit-scrollbar { width: 6px; }
+html::-webkit-scrollbar-track { background: #06121f; }
+html::-webkit-scrollbar-thumb { background-color: #1a3a5c; border-radius: 20px; }
+
+::selection {
+    background: #c5a23e;
+    color: #06121f;
+}
+
+/* ---- Custom Cursor ---- */
+@media (pointer: fine) {
+    body { cursor: none !important; }
+    a, button, input, textarea, select, [role="button"], .hover-target { cursor: none !important; }
+}
+
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 99999;
+    /* Use will-change for GPU acceleration */
+    will-change: transform;
+    /* Start offscreen */
+    transform: translate(-100px, -100px);
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #c5a23e;
+    z-index: 100000;
+}
+
+.cursor-outline {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(197, 162, 62, 0.4);
+    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                height 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                margin 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                background-color 0.3s ease,
+                border-color 0.3s ease,
+                opacity 0.3s ease;
+}
+
+.cursor-outline.hovering {
+    width: 56px;
+    height: 56px;
+    background-color: rgba(197, 162, 62, 0.06);
+    border-color: rgba(197, 162, 62, 0.6);
+}
+
+/* ---- Navbar ---- */
+.navbar {
+    transition: padding 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                background 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-inner {
+    transition: max-width 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                background-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                border-radius 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                padding 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid transparent;
+}
+
+.navbar.scrolled {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background: transparent !important;
+    border-color: transparent !important;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.navbar.scrolled .nav-inner {
+    max-width: 860px;
+    background: rgba(6, 18, 31, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 9999px;
+    border-color: rgba(255, 255, 255, 0.06);
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(197, 162, 62, 0.06);
+}
+
+.nav-logo {
+    transition: height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.navbar.scrolled .nav-logo {
+    height: 2.25rem; /* shrink from large to compact in pill */
+}
+
+/* ---- Buttons ---- */
+.btn-primary,
+.btn-outline {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn-primary::before,
+.btn-outline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 0;
+}
+
+.btn-primary::before {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+.btn-outline::before {
+    background: linear-gradient(90deg, transparent, rgba(197, 162, 62, 0.1), transparent);
+}
+
+.btn-primary:hover::before,
+.btn-outline:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(197, 162, 62, 0.3);
+}
+
+.btn-outline:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,255,255,0.4);
+    color: white;
+}
+
+/* CTA Links */
+.cta-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.cta-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #c5a23e;
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cta-link:hover {
+    gap: 1rem;
+    color: #c5a23e;
+}
+
+.cta-link:hover::after {
+    width: 100%;
+}
+
+/* ---- Marquee (GSAP driven — CSS fallback) ---- */
+.marquee-track {
+    display: flex;
+    width: fit-content;
+    will-change: transform;
+}
+
+/* ---- GSAP Reveal Hooks ---- */
+.animate-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.stagger-reveal > * {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+/* ---- Mobile Menu ---- */
+.mobile-menu {
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+/* ---- Service Cards ---- */
+.service-card {
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #c5a23e;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* ======================================
+   ENCHANTED / HARRY POTTER-INSPIRED
+   ====================================== */
+
+/* ---- Floating Star Particles ---- */
+.particles-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #c5a23e;
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatParticle var(--duration, 8s) var(--delay, 0s) ease-in-out infinite;
+    box-shadow: 0 0 4px rgba(197, 162, 62, 0.6),
+                0 0 8px rgba(197, 162, 62, 0.3);
+}
+
+.particle.large {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 6px rgba(197, 162, 62, 0.8),
+                0 0 12px rgba(197, 162, 62, 0.4);
+}
+
+@keyframes floatParticle {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1);
+    }
+    85% {
+        opacity: 0.8;
+        transform: translateY(-120px) scale(0.8);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-180px) scale(0);
+    }
+}
+
+/* ---- Ornamental Divider (Chapter Break) ---- */
+.ornament-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 2rem 0;
+    opacity: 0.4;
+}
+
+.ornament-divider .line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c5a23e, transparent);
+}
+
+.ornament-divider .diamond {
+    width: 6px;
+    height: 6px;
+    background: #c5a23e;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+
+.ornament-divider .dot {
+    width: 3px;
+    height: 3px;
+    background: #c5a23e;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* ---- Magical Glow on Hover ---- */
+.enchanted-glow {
+    position: relative;
+}
+
+.enchanted-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(197, 162, 62, 0), rgba(197, 162, 62, 0.15), rgba(197, 162, 62, 0));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.enchanted-glow:hover::before {
+    opacity: 1;
+}
+
+/* ---- Parchment texture overlay for light sections ---- */
+.parchment {
+    position: relative;
+}
+
+.parchment::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b8a070' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+.parchment > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- Sparkle cursor trail (on gold buttons) ---- */
+.btn-primary:hover {
+    box-shadow: 0 8px 30px rgba(197, 162, 62, 0.35),
+                0 0 60px rgba(197, 162, 62, 0.1);
+}
+
+/* ---- Starfield Background for Dark Sections ---- */
+.starfield {
+    position: relative;
+}
+
+.starfield::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(197, 162, 62, 0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 30% 60%, rgba(197, 162, 62, 0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 10%, rgba(255, 255, 255, 0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 40%, rgba(197, 162, 62, 0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 85% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 100%),
+        radial-gradient(1px 1px at 15% 80%, rgba(197, 162, 62, 0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 40% 35%, rgba(255, 255, 255, 0.12) 0%, transparent 100%),
+        radial-gradient(1px 1px at 60% 85%, rgba(197, 162, 62, 0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 90% 15%, rgba(255, 255, 255, 0.1) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 25% 45%, rgba(197, 162, 62, 0.4) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 75% 55%, rgba(197, 162, 62, 0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 95% 90%, rgba(255, 255, 255, 0.08) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.starfield > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- Enchanted Underline (for serif headings) ---- */
+.enchanted-underline {
+    position: relative;
+    display: inline;
+}
+
+.enchanted-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c5a23e, transparent);
+    opacity: 0.4;
+}
+
+/* ======================================
+   ADVANCED ANIMATION UTILITIES
+   ====================================== */
+
+/* ---- 3D Tilt Card ---- */
+.book-tilt-card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    will-change: transform;
+}
+
+/* ---- Parallax Image Mask ---- */
+.parallax-img {
+    height: 120%; /* Give room to pan */
+    top: -10%; /* Center the overflow */
+    position: absolute;
+    will-change: transform;
+}
+
+/* ---- Magnetic Wrapper ---- */
+.magnetic-wrap {
+    display: inline-block;
+    position: relative;
+}
+
+/* ---- Text Split Reveal ---- */
+.split-line {
+    overflow: hidden;
+}
+.split-line-inner {
+    display: inline-block;
+    will-change: transform;
+}
